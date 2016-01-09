@@ -5,12 +5,12 @@ Buildsystem to generate custom OpenWRT-Firmware files for different nodes in a t
 
 Motivation
 -------------
-Having set up a mesh of 5 TP Link TL-WR842nd v2, there's a need for configuration management. Configuration should be:
+Having set up a mesh of 5 TP Link TL-WR842nd v2 in our hackerspace for testing and research, there's a need for configuration management. Configuration should be:
 * Consistent / DRY
-* Revertable - especially using `first_boot` 
+* Revertible - especially using `first_boot` 
 * Under version control
 
-To archieve these goals, a OpenWRT-configuration is generated based on Ruby `.erb` templates. A dedicated firmware file is generated for each node.
+To archive these goals, a OpenWRT-configuration is generated based on Ruby `.erb` templates. A dedicated firmware file is generated for each node.
 
 Structure
 -----------------
@@ -21,11 +21,15 @@ Structure
 
 Usage
 ---------------
-# Adapt `nodes.yml`
-# Adapt templates in `files`
-# Run `rake`
+1. Adapt `nodes.yml`
+2. Adapt templates in `files`
+3. Run `rake`
 
 OpenWRT Release (Chaos Calmer) and Platform (TL-WR842nd v2) is hardcoded in `Rakefile`. You have to change it to support other platforms.
 
-
-
+Current Configuration
+------------------------
+Current configuration includes
+* Packages like ip, babeld, batman-adv for testing diffrent routing scenarios
+* A collectd configuration ping'ing all nodes for measurements
+* A wireless configuration putting the wifi into mesh mode while setting TX-power to a minimum
