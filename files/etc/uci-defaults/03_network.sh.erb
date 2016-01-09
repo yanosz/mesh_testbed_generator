@@ -1,0 +1,6 @@
+#!/bin/sh
+cat /usr/local/lib/mesh.uci | uci -m import network
+uci set network.loopback.ip6addr='fda1:987a:cc9:1::1/64'
+uci set firewall.@zone[0].network='lan mesh'
+
+

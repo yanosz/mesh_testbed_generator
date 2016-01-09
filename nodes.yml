@@ -1,0 +1,12 @@
+node-1:
+  hostname: node-1
+  mesh_ip: 10.10.0.1
+  ula_ip: fda1:987a:cc9:1::1/64
+  lan_ip: 10.10.1.1
+
+node_2:
+  hostname: node-2
+  mesh_ip: 10.10.0.2
+  ula_ip: fda1:987a:cc9:2::1/64
+  lan_ip: 10.10.2.1
+

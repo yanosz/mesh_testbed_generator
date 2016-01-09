@@ -1,0 +1,8 @@
+package firewall
+config rule
+        option name             Allow-SSH-WAN
+        option src              wan
+        option proto            tcp
+        option dest_port        22
+        option target           ACCEPT
+
