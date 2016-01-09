@@ -22,8 +22,8 @@ node_4:
   ula_ip: fda1:987a:cc9:4::1/64
   lan_ip: 10.10.4.1
   
-node_4:
-  hostname: node-4
-  mesh_ip: 10.10.0.4
-  ula_ip: fda1:987a:cc9:4::1/64
-  lan_ip: 10.10.4.1
+node_5:
+  hostname: node-5
+  mesh_ip: 10.10.0.5
+  ula_ip: fda1:987a:cc9:5::1/64
+  lan_ip: 10.10.5.1
