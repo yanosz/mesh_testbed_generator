@@ -34,3 +34,5 @@ Current configuration includes
 * A collectd configuration ping'ing all nodes for measurements
 * A wireless configuration putting the wifi into mesh mode while setting TX-power to a minimum
 * IPv4 and IPv6 assignments for testing 
+* SSH-Key and root-password for accessing the nodes
+* Firewall-Rules to allow connections via SSH from WAN
