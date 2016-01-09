@@ -33,3 +33,4 @@ Current configuration includes
 * Packages like ip, babeld, batman-adv for testing diffrent routing scenarios
 * A collectd configuration ping'ing all nodes for measurements
 * A wireless configuration putting the wifi into mesh mode while setting TX-power to a minimum
+* IPv4 and IPv6 assignments for testing 
