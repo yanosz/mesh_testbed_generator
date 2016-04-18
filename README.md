@@ -30,7 +30,7 @@ OpenWRT Release (Chaos Calmer) and Platform (TL-WR842nd v2) is hardcoded in `Rak
 Current Configuration
 ------------------------
 Current configuration includes
-* Packages like ip, babeld, batman-adv for testing diffrent routing scenarios
+* Packages like ip, babeld, batman-adv for testing different routing scenarios
 * A collectd configuration ping'ing all nodes for measurements
 * A wireless configuration putting the wifi into mesh mode while setting TX-power to a minimum
 * IPv4 and IPv6 assignments for testing 
