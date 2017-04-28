@@ -1,7 +1,7 @@
 Mesh Testbed Generator
 =======================
 
-Buildsystem to generate custom OpenWRT-Firmware files for different nodes in a testbed.
+Buildsystem to generate custom Lede-Firmware files for different nodes in a testbed.
 
 Motivation
 -------------

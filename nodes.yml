@@ -1,29 +1,42 @@
-node-1:
-  hostname: node-1
-  mesh_ip: 10.10.0.1
-  ula_ip: fda1:987a:cc9:1::1/64
-  lan_ip: 10.10.1.1
+#node-1:
+#  hostname: node-1
+#  mesh_ip: 10.10.0.1
+#  ula_ip: fda1:987a:cc9:1::1/64
+#  lan_ip: 10.10.1.1
 
-node_2:
-  hostname: node-2
-  mesh_ip: 10.10.0.2
-  ula_ip: fda1:987a:cc9:2::1/64
-  lan_ip: 10.10.2.1
+#node_2:
+#  hostname: node-2
+#  mesh_ip: 10.10.0.2
+#  ula_ip: fda1:987a:cc9:2::1/64
+#  lan_ip: 10.10.2.1
 
-node_3:
-  hostname: node-3
-  mesh_ip: 10.10.0.3
+#node_3:
+#  hostname: node-3
+#  mesh_ip: 10.10.0.3
+#  ula_ip: fda1:987a:cc9:3::1/64
+#  lan_ip: 10.10.3.1
+  
+#node_4:
+#  hostname: node-4
+#  mesh_ip: 10.10.0.4
+#  ula_ip: fda1:987a:cc9:4::1/64
+#  lan_ip: 10.10.4.1
+  
+#node_5:
+#  hostname: node-5
+#  mesh_ip: 10.10.0.5
+#  ula_ip: fda1:987a:cc9:5::1/64
+#  lan_ip: 10.10.5.1
+#
+
+node-ethernet-1:
   ula_ip: fda1:987a:cc9:3::1/64
-  lan_ip: 10.10.3.1
-  
-node_4:
-  hostname: node-4
-  mesh_ip: 10.10.0.4
+  hostname: ethernet-1
+  mesh_ip: 10.0.0.11
+  lan_ip: 10.0.1.1
+
+node-ethnernet-2:
+  hostname: ethernet-2
+  mesh_ip: 10.0.0.12
+  lan_ip: 10.0.2.1
   ula_ip: fda1:987a:cc9:4::1/64
-  lan_ip: 10.10.4.1
-  
-node_5:
-  hostname: node-5
-  mesh_ip: 10.10.0.5
-  ula_ip: fda1:987a:cc9:5::1/64
-  lan_ip: 10.10.5.1

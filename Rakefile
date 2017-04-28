@@ -2,11 +2,11 @@ require "erb"
 require "rake"
 require 'yaml'
 
-DOWNLOAD_BASE='https://downloads.openwrt.org/chaos_calmer/15.05/ar71xx/generic/'
-SDK_BASE="OpenWrt-ImageBuilder-15.05-ar71xx-generic.Linux-x86_64"
+DOWNLOAD_BASE='https://downloads.lede-project.org/releases/17.01.1/targets/ar71xx/generic/'
+SDK_BASE="lede-imagebuilder-17.01.1-ar71xx-generic.Linux-x86_64"
 NODES_FILE="nodes.yml"
-FIRMWARE_FILE="bin/ar71xx/openwrt-15.05-ar71xx-generic-tl-wr842n-v2-squashfs-sysupgrade.bin"
-PROFILE="TLWR842"
+FIRMWARE_FILE="bin/targets/ar71xx/generic/lede-17.01.1-ar71xx-generic-tl-wr842n-v2-squashfs-sysupgrade.bin"
+PROFILE="tl-wr842n-v2"
 PACKAGES="ip collectd collectd-mod-ping collectd-mod-network collectd-mod-wireless uhttpd luci babeld batctl bird4-uci bird4 bird6-uci bird6 birdc4 birdc6 birdcl4 birdcl6 collectd-mod-wireless"
 
 
@@ -51,7 +51,7 @@ def generate_firmware(node_name)
 end
 
 task :install_sdk do 
-  sdk_archive = "#{SDK_BASE}.tar.bz2"
+  sdk_archive = "#{SDK_BASE}.tar.xz"
   unless File.exists? SDK_BASE 
     system("wget #{DOWNLOAD_BASE}#{sdk_archive}") unless File.exists? sdk_archive
     system("tar xf #{sdk_archive}")

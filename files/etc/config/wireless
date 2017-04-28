@@ -10,9 +10,9 @@ config wifi-device 'radio0'
 config wifi-iface
         option device 'radio0'
         option encryption 'none'
-        option ssid 'mesh-test'
-        option mode 'adhoc'
-        option bssid 'EA:F8:49:35:A9:48'
+        option ssid 'Test_Nicht_Verwenden'
+        option mode 'sta'
+        option bssid 'A2:F3:C1:99:38:31'
         option network 'mesh'
 
 
