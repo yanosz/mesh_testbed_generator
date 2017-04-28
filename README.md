@@ -10,7 +10,7 @@ Having set up a mesh of 5 TP Link TL-WR842nd v2 in our hackerspace for testing a
 * Revertible - especially using `first_boot` 
 * Under version control
 
-To archive these goals, a OpenWRT-configuration is generated based on Ruby `.erb` templates. A dedicated firmware file is generated for each node.
+To archive these goals, a Lede-configuration is generated based on Ruby `.erb` templates. A dedicated firmware file is generated for each node.
 
 Structure
 -----------------
