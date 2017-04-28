@@ -25,7 +25,7 @@ Usage
 2. Adapt templates in `files`
 3. Run `rake`
 
-OpenWRT Release (Chaos Calmer) and Platform (TL-WR842nd v2) is hardcoded in `Rakefile`. You have to change it to support other platforms.
+Lede Release (Reboot / 17.01.01) and Platform (TL-WR842nd v2) is hardcoded in `Rakefile`. You have to change it to support other platforms.
 
 Current Configuration
 ------------------------
