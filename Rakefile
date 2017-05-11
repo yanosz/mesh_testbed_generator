@@ -5,9 +5,9 @@ require 'yaml'
 DOWNLOAD_BASE='https://downloads.lede-project.org/releases/17.01.1/targets/ar71xx/generic/'
 SDK_BASE="lede-imagebuilder-17.01.1-ar71xx-generic.Linux-x86_64"
 NODES_FILE="nodes.yml"
-FIRMWARE_FILE="bin/targets/ar71xx/generic/lede-17.01.1-ar71xx-generic-tl-wr842n-v2-squashfs-sysupgrade.bin"
-PROFILE="tl-wr842n-v2"
-PACKAGES="ip collectd collectd-mod-ping collectd-mod-network collectd-mod-wireless uhttpd luci babeld batctl bird4-uci bird4 bird6-uci bird6 birdc4 birdc6 birdcl4 birdcl6 collectd-mod-wireless"
+FIRMWARE_FILE="bin/targets/ar71xx/generic/lede-17.01.1-ar71xx-generic-tl-wdr3600-v1-squashfs-sysupgrade.bin"
+PROFILE="tl-wdr3600-v1"
+PACKAGES="ip collectd collectd-mod-ping collectd-mod-network collectd-mod-wireless uhttpd luci babeld batctl bird4-uci bird4 bird6-uci bird6 birdc4 birdc6 birdcl4 birdcl6 collectd-mod-wireless collectd-mod-cpu collectd-mod-load collectd-mod-memory collectd-mod-interface"
 
 
 task :default => :generate_all
