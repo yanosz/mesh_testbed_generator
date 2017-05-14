@@ -1,50 +1,46 @@
-#node-1:
-#  hostname: node-1
-#  mesh_ip: 10.10.0.1
-#  ula_ip: fda1:987a:cc9:1::1/64
-#  lan_ip: 10.10.1.1
+node-exit-unitymedia:
+  profile: 'tl-wdr3600-v1'
+  hostname: 'unitymedia-exit'
+  packages: 'luci-ssl-openssl wireless-tools mtr haveged ip collectd collectd-mod-ping collectd-mod-network collectd-mod-wireless uhttpd luci babeld batctl collectd-mod-wireless collectd-mod-cpu collectd-mod-load collectd-mod-memory collectd-mod-interface fastd kmod-nf-nathelper-extra ppp-mod-pptp'
+  ssid: 'Freifunk-Unitymedia_2.4'
+  ssid_5: 'Freifunk-Unitymedia'
+  channel_5: 36
+  fastd_exit: 0
+  pptp_exit: 1
+  routes_to_vpn: 1
+  backbone_vpn: 1
+  backbone_vpn_ipv4: '192.168.101.201'
+  lan_ipv4: '10.23.0.1'
+  dhcp_lan:
+    start: 200
+    limit: 1024
 
-#node_2:
-#  hostname: node-2
-#  mesh_ip: 10.10.0.2
-#  ula_ip: fda1:987a:cc9:2::1/64
-#  lan_ip: 10.10.2.1
+testnode-1:
+  profile: 'tl-wdr3600-v1'
+  hostname: 'testnode-1'
+  ssid: 'Freifunk-Testnode-1_2.4'
+  ssid_5: 'Freifunk-Testnode-1_5'
+  packages: 'luci-ssl-openssl wireless-tools mtr haveged ip collectd collectd-mod-ping collectd-mod-network collectd-mod-wireless uhttpd luci babeld batctl collectd-mod-wireless collectd-mod-cpu collectd-mod-load collectd-mod-memory collectd-mod-interface fastd kmod-nf-nathelper-extra ppp-mod-pptp'
+  channel_5: 40
+  fastd_exit: 0
+  routes_to_vpn: 0
+  backbone_vpn: 0
+  lan_ipv4: '10.23.0.2'
+  dhcp_lan:
+    start: 1025
+    limit: 2048
 
-#node_3:
-#  hostname: node-3
-#  mesh_ip: 10.10.0.3
-#  ula_ip: fda1:987a:cc9:3::1/64
-#  lan_ip: 10.10.3.1
-  
-#node_4:
-#  hostname: node-4
-#  mesh_ip: 10.10.0.4
-#  ula_ip: fda1:987a:cc9:4::1/64
-#  lan_ip: 10.10.4.1
-  
-#node_5:
-#  hostname: node-5
-#  mesh_ip: 10.10.0.5
-#  ula_ip: fda1:987a:cc9:5::1/64
-#  lan_ip: 10.10.5.1
-#
-
-node-ethernet-1:
-  ula_ip: fda1:987a:cc9:3::1/64
-  hostname: ethernet-1
-  mesh_ip: 10.0.0.11
-  lan_ip: 10.0.1.1
-
-node-ethnernet-2:
-  hostname: ethernet-2
-  mesh_ip: 10.0.0.12
-  lan_ip: 10.0.2.1
-  ula_ip: fda1:987a:cc9:4::1/64
-
-node-ethnernet-3:
-  hostname: ethernet-3
-  mesh_ip: 10.0.0.13
-  lan_ip: 10.0.3.1
-  ula_ip: fda1:987a:cc9:5::1/64
-
-
+testnode-2:
+  profile: 'tl-wdr3600-v1'
+  hostname: 'testnode-2'
+  ssid: 'Freifunk-Testnode-2_2.4'
+  ssid_5: 'Freifunk-Testnode-2_5'
+  packages: 'luci-ssl-openssl wireless-tools mtr haveged ip collectd collectd-mod-ping collectd-mod-network collectd-mod-wireless uhttpd luci babeld batctl collectd-mod-wireless collectd-mod-cpu collectd-mod-load collectd-mod-memory collectd-mod-interface fastd kmod-nf-nathelper-extra ppp-mod-pptp'
+  channel_5: 44
+  fastd_exit: 0
+  routes_to_vpn: 0
+  backbone_vpn: 0
+  lan_ipv4: '10.23.0.3'
+  dhcp_lan:
+    start: 2049
+    limit: 3072

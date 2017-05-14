@@ -1,32 +1,38 @@
 require "erb"
 require "rake"
 require 'yaml'
+require 'gpgme'
 
-DOWNLOAD_BASE='https://downloads.lede-project.org/releases/17.01.1/targets/ar71xx/generic/'
-SDK_BASE="lede-imagebuilder-17.01.1-ar71xx-generic.Linux-x86_64"
-NODES_FILE="nodes.yml"
-FIRMWARE_FILE="bin/targets/ar71xx/generic/lede-17.01.1-ar71xx-generic-tl-wdr3600-v1-squashfs-sysupgrade.bin"
-PROFILE="tl-wdr3600-v1"
-PACKAGES="ip collectd collectd-mod-ping collectd-mod-network collectd-mod-wireless uhttpd luci babeld batctl bird4-uci bird4 bird6-uci bird6 birdc4 birdc6 birdcl4 birdcl6 collectd-mod-wireless collectd-mod-cpu collectd-mod-load collectd-mod-memory collectd-mod-interface"
+LEDE_VERSION="17.01.1"
+PLATFORM="ar71xx"
+PLATFORM_TYPE="generic"
 
+DOWNLOAD_BASE="https://downloads.lede-project.org/releases/#{LEDE_VERSION}/targets/#{PLATFORM}/#{PLATFORM_TYPE}/"
+SDK_BASE="lede-imagebuilder-#{LEDE_VERSION}-#{PLATFORM}-#{PLATFORM_TYPE}.Linux-x86_64"
 
 task :default => :generate_all
 task :generate_all => :install_sdk do
+
+  if (! (File.exists? 'secrets.yml'))
+    raise "\n \t >>> Please decrypt secrets.yml.gpg first \n\n\n"
+  end
+  secrets = YAML.load_file("secrets.yml")
+
   # Default Generate config for all nodes
-  nodes = YAML.load_file(NODES_FILE)
-  nodes.values.each {|v| generate_node v}
+  nodes = YAML.load_file("nodes.yml")
+  nodes.values.each {|v| generate_node v,secrets}
 end
 
-def generate_node(node_cfg)
+def generate_node(node_cfg,secrets)
   dir_name = "#{SDK_BASE}/files_generated"
   
   prepare_directory(dir_name)
   #Evaluate templates
   Dir.glob("#{dir_name}/**/*.erb").each do |erb_file|
     basename = erb_file.gsub '.erb',''
-    process_erb(node_cfg,erb_file,basename)    
+    process_erb(node_cfg,erb_file,basename,secrets)    
   end
-  generate_firmware(node_cfg['hostname'])
+  generate_firmware(node_cfg['hostname'], node_cfg['profile'], node_cfg['packages'])
   
 end
 
@@ -38,16 +44,23 @@ def prepare_directory(dir_name)
   FileUtils.cp_r 'files', dir_name, :preserve => true
 end
 
-def process_erb(node,erb,base)
+def process_erb(node,erb,base,secrets)
   @node = node
+  @secrets = secrets
   template = ERB.new File.new(erb).read
   File.open(base, 'w') { |file| file.write(template.result) }
   FileUtils.rm erb
 end
 
-def generate_firmware(node_name)
-  system("make -C #{SDK_BASE}  image PROFILE=#{PROFILE} PACKAGES='#{PACKAGES}'  FILES=./files_generated")
-  FileUtils.mv "#{SDK_BASE}/#{FIRMWARE_FILE}", "bin/#{node_name}.bin"
+def generate_firmware(node_name,profile,packages)
+  system("rm -R #{SDK_BASE}/bin/*")
+  system("make -C #{SDK_BASE}  image PROFILE=#{profile} PACKAGES='#{packages}'  FILES=./files_generated")
+  FileUtils.mv(
+    "#{SDK_BASE}/bin/targets/#{PLATFORM}/#{PLATFORM_TYPE}/lede-#{LEDE_VERSION}-#{PLATFORM}-#{PLATFORM_TYPE}-#{profile}-squashfs-sysupgrade.bin", 
+    "bin/#{node_name}-sysupgrade.bin")
+  FileUtils.mv(
+    "#{SDK_BASE}/bin/targets/#{PLATFORM}/#{PLATFORM_TYPE}/lede-#{LEDE_VERSION}-#{PLATFORM}-#{PLATFORM_TYPE}-#{profile}-squashfs-factory.bin", 
+    "bin/#{node_name}-factory.bin")
 end
 
 task :install_sdk do 

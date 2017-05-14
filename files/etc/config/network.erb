@@ -1,0 +1,64 @@
+config interface 'loopback'
+	option ifname 'lo'
+	option proto 'static'
+	option ipaddr '127.0.0.1'
+	option netmask '255.0.0.0'
+
+config interface 'lan'
+	option type 'bridge'
+	option ifname 'eth0.1'
+	option proto 'static'
+	option ipaddr '<%= @node["lan_ipv4"] %>'
+	option netmask '255.255.0.0'
+	option ip6assign '64'
+
+config interface 'wan'
+	option ifname 'eth0.2'
+	option proto 'dhcp'
+
+config interface 'wan6'
+	option ifname 'eth0.2'
+	option proto 'dhcpv6'
+
+config switch
+	option name 'switch0'
+	option reset '1'
+	option enable_vlan '1'
+
+config switch_vlan
+	option device 'switch0'
+	option vlan '1'
+	option ports '2 3 4 5 0t'
+
+config switch_vlan
+	option device 'switch0'
+	option vlan '2'
+	option ports '1 0t'
+
+config interface 'fastd_bb'
+	option ifname 'fastd_bb'
+	option proto 'static'
+	option ipaddr '<%= @node['backbone_vpn_ipv4'] %>'
+	option netmask '255.255.255.0'
+
+config interface 'fastd_exit'
+	option ifname 'fastd_exit'
+	option proto 'dhcp' 
+
+config interface 'fastd_exit6'
+	option ifname '@fastd_exit'
+	option proto 'dhcpv6' 
+
+<% if @node['pptp_exit'].to_s == '1' %>
+
+config interface 'pptp_exit' 
+	option proto 'pptp'
+	option server 'omni.freifunk-koeln.de'
+	option username 'mado'
+	option password '<%= @secrets["pptp_password"]%>'
+
+config interface 'pptp_exit6'
+	option ifname '@pptp_exit'
+	option proto 'dhcpv6' 
+
+<% end %>

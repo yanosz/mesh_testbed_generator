@@ -8,7 +8,7 @@ BaseDir     "/var/lib/collectd"
 PIDFile     "/var/run/collectd.pid"
 #PluginDir  "/usr/lib/collectd"
 #TypesDB    "/usr/share/collectd/types.db"
-Interval    1
+Interval    60
 ReadThreads 2
 LogLevel 4
 
@@ -16,24 +16,20 @@ LoadPlugin network
 LoadPlugin ping
 LoadPlugin interface
 LoadPlugin load
-LoadPlugin ping
-LoadPlugin rrdtool
 LoadPlugin cpu
-LoadPlugin network
 LoadPlugin memory
-
+LoadPlugin wireless
 
 
 
 <Plugin "network">
-	Server "10.0.0.4" "25826"
+	Server "192.168.101.2" "25826"
 </Plugin>
 
+<% if @node['routes_to_vpn'] %>
 <Plugin "ping">
-        Host "10.0.0.4"
-#	Host "fda1:987a:cc9:1::1"
-#	Host "fda1:987a:cc9:2::1"
-#	Host "fda1:987a:cc9:3::1"
-#	Host "fda1:987a:cc9:4::1"
-#	Host "fda1:987a:cc9:5::1"
+	Host "chaosnetz.org"
+	Host "omni.freifunk-koeln.de"
+	Host "yagi.freifunk-koeln.de"
 </Plugin>
+<% end %>
