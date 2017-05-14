@@ -1,7 +1,6 @@
 require "erb"
 require "rake"
 require 'yaml'
-require 'gpgme'
 
 LEDE_VERSION="17.01.1"
 PLATFORM="ar71xx"
