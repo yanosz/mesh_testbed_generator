@@ -1,46 +1,53 @@
-node-exit-unitymedia:
+node-schauspiel-exit:
   profile: 'tl-wdr3600-v1'
-  hostname: 'unitymedia-exit'
-  packages: 'luci-ssl-openssl wireless-tools mtr haveged ip collectd collectd-mod-ping collectd-mod-network collectd-mod-wireless uhttpd luci babeld batctl collectd-mod-wireless collectd-mod-cpu collectd-mod-load collectd-mod-memory collectd-mod-interface fastd kmod-nf-nathelper-extra ppp-mod-pptp'
-  ssid: 'Freifunk-Unitymedia_2.4'
-  ssid_5: 'Freifunk-Unitymedia'
+  hostname: 'schauspiel-exit'
+  packages: 'kmod-usb-serial-option usb-modeswitch kmod-usb-serial-wwan kmod-usb-net-huawei-cdc-ncm kmod-usb-net-cdc-subset  luci-ssl-openssl wireless-tools mtr haveged ip collectd collectd-mod-ping collectd-mod-network collectd-mod-wireless uhttpd luci babeld batctl collectd-mod-wireless collectd-mod-cpu collectd-mod-load collectd-mod-memory collectd-mod-interface fastd kmod-nf-nathelper-extra ppp-mod-pptp'
+  ssid: 'Schauspiel'
+  ssid_5: 'Schauspiel'
   channel_5: 36
+  channel: 1
   fastd_exit: 0
   pptp_exit: 1
   routes_to_vpn: 1
   backbone_vpn: 1
-  backbone_vpn_ipv4: '192.168.101.201'
-  lan_ipv4: '10.23.0.1'
+  backbone_vpn_ipv4: '192.168.101.150'
+  lan_ipv4: '10.42.1.1'
   dhcp_lan:
-    start: 200
-    limit: 1024
-
-testnode-1:
-  profile: 'tl-wdr3600-v1'
-  hostname: 'testnode-1'
-  ssid: 'Freifunk-Testnode-1_2.4'
-  ssid_5: 'Freifunk-Testnode-1_5'
-  packages: 'luci-ssl-openssl wireless-tools mtr haveged ip collectd collectd-mod-ping collectd-mod-network collectd-mod-wireless uhttpd luci babeld batctl collectd-mod-wireless collectd-mod-cpu collectd-mod-load collectd-mod-memory collectd-mod-interface fastd kmod-nf-nathelper-extra ppp-mod-pptp'
-  channel_5: 40
-  fastd_exit: 0
-  routes_to_vpn: 0
-  backbone_vpn: 0
-  lan_ipv4: '10.23.0.2'
-  dhcp_lan:
-    start: 1025
+    start: 1024
     limit: 2048
 
-testnode-2:
+node-router-1:
   profile: 'tl-wdr3600-v1'
-  hostname: 'testnode-2'
-  ssid: 'Freifunk-Testnode-2_2.4'
-  ssid_5: 'Freifunk-Testnode-2_5'
-  packages: 'luci-ssl-openssl wireless-tools mtr haveged ip collectd collectd-mod-ping collectd-mod-network collectd-mod-wireless uhttpd luci babeld batctl collectd-mod-wireless collectd-mod-cpu collectd-mod-load collectd-mod-memory collectd-mod-interface fastd kmod-nf-nathelper-extra ppp-mod-pptp'
-  channel_5: 44
+  hostname: 'schauspiel-exit'
+  packages: 'comgt kmod-usb-serial kmod-usb-serial-option kmod-usb-serial-wwan usb-modeswitch kmod-usb-storage-extras kmod-usb-net-huawei-cdc-ncm kmod-usb-net-cdc-subset  luci-ssl-openssl wireless-tools mtr haveged ip collectd collectd-mod-ping collectd-mod-network collectd-mod-wireless uhttpd luci babeld batctl collectd-mod-wireless collectd-mod-cpu collectd-mod-load collectd-mod-memory collectd-mod-interface fastd kmod-nf-nathelper-extra ppp-mod-pptp'
+  ssid: 'Schauspiel'
+  ssid_5: 'Schauspiel'
+  channel_5: 40
+  channel: 6
   fastd_exit: 0
+  pptp_exit: 0
   routes_to_vpn: 0
   backbone_vpn: 0
-  lan_ipv4: '10.23.0.3'
+  backbone_vpn_ipv4: '192.168.101.151'
+  lan_ipv4: '10.42.1.2'
   dhcp_lan:
     start: 2049
-    limit: 3072
+    limit: 3071
+
+node-router-2:
+  profile: 'tl-wdr3600-v1'
+  hostname: 'schauspiel-exit'
+  packages: 'comgt kmod-usb-serial kmod-usb-serial-option kmod-usb-serial-wwan usb-modeswitch kmod-usb-storage-extras kmod-usb-net-huawei-cdc-ncm kmod-usb-net-cdc-subset  luci-ssl-openssl wireless-tools mtr haveged ip collectd collectd-mod-ping collectd-mod-network collectd-mod-wireless uhttpd luci babeld batctl collectd-mod-wireless collectd-mod-cpu collectd-mod-load collectd-mod-memory collectd-mod-interface fastd kmod-nf-nathelper-extra ppp-mod-pptp'
+  ssid: 'Schauspiel'
+  ssid_5: 'Schauspiel'
+  channel_5: 44
+  channel: 11
+  fastd_exit: 0
+  pptp_exit: 1
+  routes_to_vpn: 0
+  backbone_vpn: 0
+  backbone_vpn_ipv4: '192.168.101.152'
+  lan_ipv4: '10.42.1.3'
+  dhcp_lan:
+    start: 3072
+    limit: 4096
