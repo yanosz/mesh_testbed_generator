@@ -1,24 +1,6 @@
-node-schauspiel-exit:
-  profile: 'tl-wdr3600-v1'
-  hostname: 'schauspiel-exit'
-  packages: 'kmod-usb-serial-option usb-modeswitch kmod-usb-serial-wwan kmod-usb-net-huawei-cdc-ncm kmod-usb-net-cdc-subset  luci-ssl-openssl wireless-tools mtr haveged ip collectd collectd-mod-ping collectd-mod-network collectd-mod-wireless uhttpd luci babeld batctl collectd-mod-wireless collectd-mod-cpu collectd-mod-load collectd-mod-memory collectd-mod-interface fastd kmod-nf-nathelper-extra ppp-mod-pptp'
-  ssid: 'Schauspiel'
-  ssid_5: 'Schauspiel'
-  channel_5: 36
-  channel: 1
-  fastd_exit: 0
-  pptp_exit: 1
-  routes_to_vpn: 1
-  backbone_vpn: 1
-  backbone_vpn_ipv4: '192.168.101.150'
-  lan_ipv4: '10.42.1.1'
-  dhcp_lan:
-    start: 1024
-    limit: 2048
-
 node-router-1:
   profile: 'tl-wdr3600-v1'
-  hostname: 'schauspiel-exit'
+  hostname: 'schauspiel-node-1'
   packages: 'comgt kmod-usb-serial kmod-usb-serial-option kmod-usb-serial-wwan usb-modeswitch kmod-usb-storage-extras kmod-usb-net-huawei-cdc-ncm kmod-usb-net-cdc-subset  luci-ssl-openssl wireless-tools mtr haveged ip collectd collectd-mod-ping collectd-mod-network collectd-mod-wireless uhttpd luci babeld batctl collectd-mod-wireless collectd-mod-cpu collectd-mod-load collectd-mod-memory collectd-mod-interface fastd kmod-nf-nathelper-extra ppp-mod-pptp'
   ssid: 'Schauspiel'
   ssid_5: 'Schauspiel'
@@ -36,7 +18,7 @@ node-router-1:
 
 node-router-2:
   profile: 'tl-wdr3600-v1'
-  hostname: 'schauspiel-exit'
+  hostname: 'schauspiel-node-2'
   packages: 'comgt kmod-usb-serial kmod-usb-serial-option kmod-usb-serial-wwan usb-modeswitch kmod-usb-storage-extras kmod-usb-net-huawei-cdc-ncm kmod-usb-net-cdc-subset  luci-ssl-openssl wireless-tools mtr haveged ip collectd collectd-mod-ping collectd-mod-network collectd-mod-wireless uhttpd luci babeld batctl collectd-mod-wireless collectd-mod-cpu collectd-mod-load collectd-mod-memory collectd-mod-interface fastd kmod-nf-nathelper-extra ppp-mod-pptp'
   ssid: 'Schauspiel'
   ssid_5: 'Schauspiel'
@@ -51,3 +33,21 @@ node-router-2:
   dhcp_lan:
     start: 3072
     limit: 4096
+
+node-schauspiel-exit:
+  profile: 'tl-wdr3600-v1'
+  hostname: 'schauspiel-exit'
+  packages: 'kmod-usb-serial-option usb-modeswitch kmod-usb-serial-wwan kmod-usb-net-huawei-cdc-ncm kmod-usb-net-cdc-subset  luci-ssl-openssl wireless-tools mtr haveged ip collectd collectd-mod-ping collectd-mod-network collectd-mod-wireless uhttpd luci babeld batctl collectd-mod-wireless collectd-mod-cpu collectd-mod-load collectd-mod-memory collectd-mod-interface fastd kmod-nf-nathelper-extra ppp-mod-pptp'
+  ssid: 'Schauspiel'
+  ssid_5: 'Schauspiel'
+  channel_5: 36
+  channel: 1
+  fastd_exit: 0
+  pptp_exit: 1
+  routes_to_vpn: 1
+  backbone_vpn: '1'
+  backbone_vpn_ipv4: '192.168.101.150'
+  lan_ipv4: '10.42.1.1'
+  dhcp_lan:
+    start: 1024
+    limit: 2048

@@ -12,7 +12,7 @@ config wifi-iface 'default_radio0'
 	option network 'lan'
 	option mode 'ap'
     option encryption 'psk-mixed'
-    option key '<%= @node["wpa_passphrase"] %>'	
+    option key '<%= @secrets["wpa_passphrase"] %>'	
     option ssid '<%= @node['ssid'] %>'
 
 config wifi-device 'radio1'

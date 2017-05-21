@@ -14,7 +14,12 @@ config interface 'lan'
 
 config interface 'wan'
 	option ifname 'eth0.2'
-	option proto 'dhcp'
+	option proto 'static'
+	option ipaddr '195.14.245.69'
+	option gateway '195.14.245.65'
+	option netmask '255.255.255.248'
+	list dns '8.8.8.8'
+	list dns '8.8.4.4'
 
 config interface 'wan6'
 	option ifname 'eth0.2'
@@ -53,7 +58,7 @@ config interface 'fastd_exit6'
 
 config interface 'pptp_exit' 
 	option proto 'pptp'
-	option server 'omni.freifunk-koeln.de'
+	option server '195.54.164.202'
 	option username 'schauspiel'
 	option password '<%= @secrets["pptp_password"]%>'
 
@@ -62,3 +67,26 @@ config interface 'pptp_exit6'
 	option proto 'dhcpv6' 
 
 <% end %>
+
+# Routes fuer VPN
+config 'route' 'ChaosAS'
+    option 'interface' 'wan'
+    option 'target' '195.54.164.200'
+    option 'netmask' '255.255.255.248'
+    option 'gateway' '195.14.245.65'
+
+# Routes fuer VPN
+config 'route' 'Reaver'
+    option 'interface' 'wan'
+    option 'target' '212.201.68.150'
+    option 'netmask' '255.255.255.255'
+    option 'gateway' '195.14.245.65'        
+
+config 'route' 'icvpn1'
+    option 'interface' 'wan'
+    option 'target' '212.201.68.131'
+    option 'netmask' '255.255.255.255'
+    option 'gateway' '195.14.245.65'        
+
+
+        
