@@ -1,10 +1,10 @@
 node-exit-unitymedia:
   profile: 'tl-wdr3600-v1'
-  hostname: 'unitymedia-exit'
-  packages: 'luci-ssl-openssl wireless-tools mtr haveged ip collectd collectd-mod-ping collectd-mod-network collectd-mod-wireless uhttpd luci babeld batctl collectd-mod-wireless collectd-mod-cpu collectd-mod-load collectd-mod-memory collectd-mod-interface fastd kmod-nf-nathelper-extra ppp-mod-pptp'
+  hostname: 'unitymedia-exit-mado'
+  packages: 'luci-ssl-openssl wireless-tools mtr haveged ip collectd collectd-mod-iwinfo collectd-mod-ping collectd-mod-network uhttpd luci babeld batctl collectd-mod-wireless collectd-mod-cpu collectd-mod-load collectd-mod-memory collectd-mod-interface fastd kmod-nf-nathelper-extra ppp-mod-pptp'
   ssid: 'Freifunk-Unitymedia_2.4'
   ssid_5: 'Freifunk-Unitymedia'
-  channel_5: 36
+  channel: 1
   fastd_exit: 0
   pptp_exit: 1
   routes_to_vpn: 1
@@ -12,35 +12,161 @@ node-exit-unitymedia:
   backbone_vpn_ipv4: '192.168.101.201'
   lan_ipv4: '10.23.0.1'
   dhcp_lan:
-    start: 200
+    start: 256
     limit: 1024
 
-testnode-1:
+access-10:
   profile: 'tl-wdr3600-v1'
-  hostname: 'testnode-1'
-  ssid: 'Freifunk-Testnode-1_2.4'
-  ssid_5: 'Freifunk-Testnode-1_5'
-  packages: 'luci-ssl-openssl wireless-tools mtr haveged ip collectd collectd-mod-ping collectd-mod-network collectd-mod-wireless uhttpd luci babeld batctl collectd-mod-wireless collectd-mod-cpu collectd-mod-load collectd-mod-memory collectd-mod-interface fastd kmod-nf-nathelper-extra ppp-mod-pptp'
-  channel_5: 40
+  hostname: 'access-10-mado'
+  packages: 'luci-ssl-openssl wireless-tools mtr haveged ip collectd collectd-mod-iwinfo collectd-mod-ping collectd-mod-network uhttpd luci babeld batctl collectd-mod-wireless collectd-mod-cpu collectd-mod-load collectd-mod-memory collectd-mod-interface fastd kmod-nf-nathelper-extra ppp-mod-pptp'
+  ssid: 'Freifunk'
+  ssid_5: 'backbone-1'
+  channel: 1
   fastd_exit: 0
   routes_to_vpn: 0
-  backbone_vpn: 0
-  lan_ipv4: '10.23.0.2'
-  dhcp_lan:
-    start: 1025
-    limit: 2048
+  backbone_vpn: 1
+  backbone_vpn_ipv4: '192.168.101.10'
+  lan_ipv4: '10.23.0.110'
 
-testnode-2:
+access-11:
   profile: 'tl-wdr3600-v1'
-  hostname: 'testnode-2'
-  ssid: 'Freifunk-Testnode-2_2.4'
-  ssid_5: 'Freifunk-Testnode-2_5'
-  packages: 'luci-ssl-openssl wireless-tools mtr haveged ip collectd collectd-mod-ping collectd-mod-network collectd-mod-wireless uhttpd luci babeld batctl collectd-mod-wireless collectd-mod-cpu collectd-mod-load collectd-mod-memory collectd-mod-interface fastd kmod-nf-nathelper-extra ppp-mod-pptp'
-  channel_5: 44
+  hostname: 'access-11-mado'
+  packages: 'luci-ssl-openssl wireless-tools mtr haveged ip collectd collectd-mod-iwinfo collectd-mod-ping collectd-mod-network uhttpd luci babeld batctl collectd-mod-wireless collectd-mod-cpu collectd-mod-load collectd-mod-memory collectd-mod-interface fastd kmod-nf-nathelper-extra ppp-mod-pptp'
+  ssid: 'Freifunk'
+  ssid_5: 'backbone-1'
+  channel: 5
   fastd_exit: 0
   routes_to_vpn: 0
-  backbone_vpn: 0
-  lan_ipv4: '10.23.0.3'
-  dhcp_lan:
-    start: 2049
-    limit: 3072
+  backbone_vpn: 1
+  backbone_vpn_ipv4: '192.168.101.11'
+  lan_ipv4: '10.23.0.111'
+
+access-12:
+  profile: 'tl-wdr3600-v1'
+  hostname: 'access-12-mado'
+  packages: 'luci-ssl-openssl wireless-tools mtr haveged ip collectd collectd-mod-iwinfo collectd-mod-ping collectd-mod-network uhttpd luci babeld batctl collectd-mod-wireless collectd-mod-cpu collectd-mod-load collectd-mod-memory collectd-mod-interface fastd kmod-nf-nathelper-extra ppp-mod-pptp'
+  ssid: 'Freifunk'
+  ssid_5: 'backbone-2'
+  channel: 9
+  fastd_exit: 0
+  routes_to_vpn: 0
+  backbone_vpn: 1
+  backbone_vpn_ipv4: '192.168.101.12'
+  lan_ipv4: '10.23.0.112'
+
+access-20:
+  profile: 'tl-wdr3600-v1'
+  hostname: 'access-20-mado'
+  packages: 'luci-ssl-openssl wireless-tools mtr haveged ip collectd collectd-mod-iwinfo collectd-mod-ping collectd-mod-network uhttpd luci babeld batctl collectd-mod-wireless collectd-mod-cpu collectd-mod-load collectd-mod-memory collectd-mod-interface fastd kmod-nf-nathelper-extra ppp-mod-pptp'
+  ssid: 'Freifunk'
+  ssid_5: 'backbone-2'
+  channel: 1
+  fastd_exit: 0
+  routes_to_vpn: 0
+  backbone_vpn: 1
+  backbone_vpn_ipv4: '192.168.101.20'
+  lan_ipv4: '10.23.0.120'
+
+access-21:
+  profile: 'tl-wdr3600-v1'
+  hostname: 'access-21-mado'
+  packages: 'luci-ssl-openssl wireless-tools mtr haveged ip collectd collectd-mod-iwinfo collectd-mod-ping collectd-mod-network uhttpd luci babeld batctl collectd-mod-wireless collectd-mod-cpu collectd-mod-load collectd-mod-memory collectd-mod-interface fastd kmod-nf-nathelper-extra ppp-mod-pptp'
+  ssid: 'Freifunk'
+  ssid_5: 'backbone-2'
+  channel: 5
+  fastd_exit: 0
+  routes_to_vpn: 0
+  backbone_vpn: 1
+  backbone_vpn_ipv4: '192.168.101.21'
+  lan_ipv4: '10.23.0.121'
+
+access-22:
+  profile: 'tl-wdr3600-v1'
+  hostname: 'access-22-mado'
+  packages: 'luci-ssl-openssl wireless-tools mtr haveged ip collectd collectd-mod-iwinfo collectd-mod-ping collectd-mod-network uhttpd luci babeld batctl collectd-mod-wireless collectd-mod-cpu collectd-mod-load collectd-mod-memory collectd-mod-interface fastd kmod-nf-nathelper-extra ppp-mod-pptp'
+  ssid: 'Freifunk'
+  ssid_5: 'backbone-2'
+  channel: 9
+  fastd_exit: 0
+  routes_to_vpn: 0
+  backbone_vpn: 1
+  backbone_vpn_ipv4: '192.168.101.22'
+  lan_ipv4: '10.23.0.122'
+
+access-30:
+  profile: 'tl-wdr3600-v1'
+  hostname: 'access-30-mado'
+  packages: 'luci-ssl-openssl wireless-tools mtr haveged ip collectd collectd-mod-iwinfo collectd-mod-ping collectd-mod-network uhttpd luci babeld batctl collectd-mod-wireless collectd-mod-cpu collectd-mod-load collectd-mod-memory collectd-mod-interface fastd kmod-nf-nathelper-extra ppp-mod-pptp'
+  ssid: 'Freifunk'
+  ssid_5: 'backbone-3'
+  channel: 1
+  fastd_exit: 0
+  routes_to_vpn: 0
+  backbone_vpn: 1
+  backbone_vpn_ipv4: '192.168.101.30'
+  lan_ipv4: '10.23.0.130'
+
+access-31:
+  profile: 'tl-wdr3600-v1'
+  hostname: 'access-31-mado'
+  packages: 'luci-ssl-openssl wireless-tools mtr haveged ip collectd collectd-mod-iwinfo collectd-mod-ping collectd-mod-network uhttpd luci babeld batctl collectd-mod-wireless collectd-mod-cpu collectd-mod-load collectd-mod-memory collectd-mod-interface fastd kmod-nf-nathelper-extra ppp-mod-pptp'
+  ssid: 'Freifunk'
+  ssid_5: 'backbone-3'
+  channel: 5
+  fastd_exit: 0
+  routes_to_vpn: 0
+  backbone_vpn: 1
+  backbone_vpn_ipv4: '192.168.101.31'
+  lan_ipv4: '10.23.0.131'
+
+access-32:
+  profile: 'tl-wdr3600-v1'
+  hostname: 'access-32-mado'
+  packages: 'luci-ssl-openssl wireless-tools mtr haveged ip collectd collectd-mod-iwinfo collectd-mod-ping collectd-mod-network uhttpd luci babeld batctl collectd-mod-wireless collectd-mod-cpu collectd-mod-load collectd-mod-memory collectd-mod-interface fastd kmod-nf-nathelper-extra ppp-mod-pptp'
+  ssid: 'Freifunk'
+  ssid_5: 'backbone-3'
+  channel: 9
+  fastd_exit: 0
+  routes_to_vpn: 0
+  backbone_vpn: 1
+  backbone_vpn_ipv4: '192.168.101.32'
+  lan_ipv4: '10.23.0.132'
+
+access-40:
+  profile: 'tl-wdr3600-v1'
+  hostname: 'access-40-mado'
+  packages: 'luci-ssl-openssl wireless-tools mtr haveged ip collectd collectd-mod-iwinfo collectd-mod-ping collectd-mod-network uhttpd luci babeld batctl collectd-mod-wireless collectd-mod-cpu collectd-mod-load collectd-mod-memory collectd-mod-interface fastd kmod-nf-nathelper-extra ppp-mod-pptp'
+  ssid: 'Freifunk'
+  ssid_5: 'backbone-4'
+  channel: 1
+  fastd_exit: 0
+  routes_to_vpn: 0
+  backbone_vpn: 1
+  backbone_vpn_ipv4: '192.168.101.40'
+  lan_ipv4: '10.23.0.140'
+
+access-41:
+  profile: 'tl-wdr3600-v1'
+  hostname: 'access-41-mado'
+  packages: 'luci-ssl-openssl wireless-tools mtr haveged ip collectd collectd-mod-iwinfo collectd-mod-ping collectd-mod-network uhttpd luci babeld batctl collectd-mod-wireless collectd-mod-cpu collectd-mod-load collectd-mod-memory collectd-mod-interface fastd kmod-nf-nathelper-extra ppp-mod-pptp'
+  ssid: 'Freifunk'
+  ssid_5: 'backbone-4'
+  channel: 5
+  fastd_exit: 0
+  routes_to_vpn: 0
+  backbone_vpn: 1
+  backbone_vpn_ipv4: '192.168.101.41'
+  lan_ipv4: '10.23.0.141'
+
+access-42:
+  profile: 'tl-wdr3600-v1'
+  hostname: 'access-42-mado'
+  packages: 'luci-ssl-openssl wireless-tools mtr haveged ip collectd collectd-mod-iwinfo collectd-mod-ping collectd-mod-network uhttpd luci babeld batctl collectd-mod-wireless collectd-mod-cpu collectd-mod-load collectd-mod-memory collectd-mod-interface fastd kmod-nf-nathelper-extra ppp-mod-pptp'
+  ssid: 'Freifunk'
+  ssid_5: 'backbone-4'
+  channel: 9
+  fastd_exit: 0
+  routes_to_vpn: 0
+  backbone_vpn: 1
+  backbone_vpn_ipv4: '192.168.101.42'
+  lan_ipv4: '10.23.0.142'
