@@ -1,28 +1,27 @@
+
 config interface 'loopback'
 	option ifname 'lo'
 	option proto 'static'
 	option ipaddr '127.0.0.1'
 	option netmask '255.0.0.0'
 
+config globals 'globals'
+	option ula_prefix 'fd07:4000:de8b::/48'
+
 config interface 'lan'
 	option type 'bridge'
-	option ifname 'eth0.1'
+	option ifname 'eth0'
 	option proto 'static'
-	option ipaddr '<%= @node["lan_ipv4"] %>'
-	option netmask '255.255.0.0'
-	option ip6assign '64'
+	option ipaddr '192.168.1.1'
+	option netmask '255.255.255.0'
+	option ip6assign '60'
 
 config interface 'wan'
-	option ifname 'eth0.2'
-	option proto 'static'
-	option ipaddr '195.14.245.69'
-	option gateway '195.14.245.65'
-	option netmask '255.255.255.248'
-	list dns '8.8.8.8'
-	list dns '8.8.4.4'
+	option ifname 'eth1'
+	option proto 'dhcp'
 
 config interface 'wan6'
-	option ifname 'eth0.2'
+	option ifname 'eth1'
 	option proto 'dhcpv6'
 
 config switch
@@ -33,60 +32,13 @@ config switch
 config switch_vlan
 	option device 'switch0'
 	option vlan '1'
-	option ports '2 3 4 5 0t'
+	option ports '1 2 3 4 0'
 
-config switch_vlan
-	option device 'switch0'
-	option vlan '2'
-	option ports '1 0t'
-
-config interface 'fastd_bb'
-	option ifname 'fastd_bb'
+config interface 'adhoc'
+	option _orig_ifname 'wlan0'
+	option _orig_bridge 'false'
 	option proto 'static'
-	option ipaddr '<%= @node['backbone_vpn_ipv4'] %>'
-	option netmask '255.255.255.0'
-
-config interface 'fastd_exit'
-	option ifname 'fastd_exit'
-	option proto 'dhcp' 
-
-config interface 'fastd_exit6'
-	option ifname '@fastd_exit'
-	option proto 'dhcpv6' 
-
-<% if @node['pptp_exit'].to_s == '1' %>
-
-config interface 'pptp_exit' 
-	option proto 'pptp'
-	option server '195.54.164.202'
-	option username 'schauspiel'
-	option password '<%= @secrets["pptp_password"]%>'
-
-config interface 'pptp_exit6'
-	option ifname '@pptp_exit'
-	option proto 'dhcpv6' 
-
-<% end %>
-
-# Routes fuer VPN
-config 'route' 'ChaosAS'
-    option 'interface' 'wan'
-    option 'target' '195.54.164.200'
-    option 'netmask' '255.255.255.248'
-    option 'gateway' '195.14.245.65'
-
-# Routes fuer VPN
-config 'route' 'Reaver'
-    option 'interface' 'wan'
-    option 'target' '212.201.68.150'
-    option 'netmask' '255.255.255.255'
-    option 'gateway' '195.14.245.65'        
-
-config 'route' 'icvpn1'
-    option 'interface' 'wan'
-    option 'target' '212.201.68.131'
-    option 'netmask' '255.255.255.255'
-    option 'gateway' '195.14.245.65'        
-
-
-        
+	option ipaddr '<%= @node['ipv4'] %>'
+	option netmask '255.255.255.255'
+  list ip6addr '<%= @node['ipv6'] %>/64'
+	list ip6addr '<%= @node['ipv6_ll'] %>/64'

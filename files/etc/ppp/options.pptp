@@ -1,7 +1,0 @@
-noipdefault
-noauth
-nobsdcomp
-nodeflate
-idle 0
-nomppe
-maxfail 0
