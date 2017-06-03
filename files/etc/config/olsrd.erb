@@ -22,3 +22,7 @@ config LoadPlugin
 
 config Interface
 	list interface 'adhoc'
+
+config Hna4
+	option netaddr '<%= ipv4_lan %>0'
+	option netmask '255.255.255.0'
