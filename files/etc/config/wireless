@@ -5,7 +5,7 @@ config wifi-device 'radio0'
 	option path 'platform/qca953x_wmac'
 	option htmode 'HT20'
 	option channel '1'
-	option txpower '18'
+	option txpower '1' # Given by the task!
 	option country 'DE'
 	# That ... should disable 802.11n ... but not sure
 	option wmm '0'
