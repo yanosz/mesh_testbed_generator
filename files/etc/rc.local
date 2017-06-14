@@ -3,5 +3,7 @@
 
 iperf -s -D > /tmp/iperf_tcp.log
 iperf -s -u -D > /tmp/iperf_udp.log
+/usr/local/bin/dump_status.sh &
+/usr/local/bin/commit_dumps.sh &
 
 exit 0
