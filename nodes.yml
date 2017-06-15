@@ -1,5 +1,5 @@
 node-router-1:
-  profile: 'tl-wr841-v9'
+  profile: 'tl-wr841-v8'
   hostname: 'group-4-node-1'
   packages: 'olsrd iperf tcpdump-mini olsrd-mod-httpinfo olsrd-mod-jsoninfo'
   ipv4: '192.168.2.1'
@@ -8,7 +8,7 @@ node-router-1:
   ipv6_ll: 'fe80::1'
 
 node-router-2:
-  profile: 'tl-wr841-v9'
+  profile: 'tl-wr841-v8'
   hostname: 'group-4-node-2'
   packages: 'olsrd iperf tcpdump-mini olsrd-mod-httpinfo olsrd-mod-jsoninfo'
   ipv4: '192.168.2.2'
@@ -17,7 +17,7 @@ node-router-2:
   ipv6_ll: 'fe80::2'
 
 node-router-3:
-  profile: 'tl-wr841-v9'
+  profile: 'tl-wr841-v8'
   hostname: 'group-4-node-3'
   packages: 'olsrd iperf tcpdump-mini olsrd-mod-httpinfo olsrd-mod-jsoninfo'
   ipv4: '192.168.2.3'
@@ -26,7 +26,7 @@ node-router-3:
   ipv6_ll: 'fe80::3'
 
 node-router-4:
-  profile: 'tl-wr841-v9'
+  profile: 'tl-wr841-v8'
   hostname: 'group-4-node-4'
   packages: 'olsrd iperf tcpdump-mini olsrd-mod-httpinfo olsrd-mod-jsoninfo'
   ipv4: '192.168.2.4'
