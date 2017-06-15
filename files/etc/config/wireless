@@ -3,26 +3,9 @@ config wifi-device 'radio0'
 	option type 'mac80211'
 	option hwmode '11g'
 	option path 'platform/ar934x_wmac'
-	option htmode 'HT20'
 	option channel '1'
 	option txpower '1' # Given by the task!
 	option country 'DE'
-	# That ... should disable 802.11n ... but not sure
-	option wmm '0'
-	#Use 802.11g Basic rates, only
-	list basic_rate '6000'
-	list basic_rate '9000'
-	list basic_rate '12000'
-	list basic_rate '18000'
-	list basic_rate '24000'
-	list basic_rate '36000'
-	list basic_rate '48000'
-	list basic_rate '54000'
-
-	# We don't need 4 addresses
-	option wds '0'
-	# Using 802.11g, there's no support for short Guard Intervals
-	option short_preamble '0'
 
 config wifi-iface 'default_radio0'
 	option device 'radio0'
