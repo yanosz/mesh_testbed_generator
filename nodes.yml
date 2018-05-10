@@ -6,6 +6,7 @@ node-router-1:
   ipv4_lan: '192.168.101.'
   ipv6: 'fc00:1::'
   ipv6_ll: 'fe80::1'
+  filebase: 'files_2'
 
 node-router-2:
   profile: 'tl-wr841-v9'

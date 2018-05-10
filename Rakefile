@@ -2,7 +2,7 @@ require "erb"
 require "rake"
 require 'yaml'
 
-LEDE_VERSION="17.01.1"
+LEDE_VERSION="17.01.4"
 PLATFORM="ar71xx"
 PLATFORM_TYPE="generic"
 
@@ -19,13 +19,13 @@ task :generate_all => :install_sdk do
 
   # Default Generate config for all nodes
   nodes = YAML.load_file("nodes.yml")
-  nodes.values.each {|v| generate_node v,secrets}
+  nodes.values.each {|v| generate_node(v,secrets)}
 end
 
 def generate_node(node_cfg,secrets)
   dir_name = "#{SDK_BASE}/files_generated"
   
-  prepare_directory(dir_name)
+  prepare_directory(dir_name,node_cfg['filebase'] || 'files')
   #Evaluate templates
   Dir.glob("#{dir_name}/**/*.erb").each do |erb_file|
     basename = erb_file.gsub '.erb',''
@@ -35,12 +35,12 @@ def generate_node(node_cfg,secrets)
   
 end
 
-def prepare_directory(dir_name)
+def prepare_directory(dir_name,filebase)
   # Clean up
   FileUtils.rm_r dir_name if File.exists? dir_name
   
   # Prepare
-  FileUtils.cp_r 'files', dir_name, :preserve => true
+  FileUtils.cp_r filebase, dir_name, :preserve => true
 end
 
 def process_erb(node,erb,base,secrets)
