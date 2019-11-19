@@ -1,35 +1,17 @@
-node-router-1:
-  profile: 'tl-wr841-v8'
-  hostname: 'group-4-node-1'
-  packages: 'olsrd iperf tcpdump-mini olsrd-mod-httpinfo olsrd-mod-jsoninfo'
-  ipv4: '192.168.2.1'
-  ipv4_lan: '192.168.101.'
-  ipv6: 'fc00:1::'
-  ipv6_ll: 'fe80::1'
+access-security:
+  profile: 'tl-wr841-v9'
+  hostname: 'access-security'
+  ipv4: '172.20.0.20'
+  ipv6: '2001:67c:20a0:b1a8::20/64'
+  packages: '-ppp -ppp-mod-pppoe -ip6tables -iptables -dnsmasq -odhcp6c -odhcpd-ipv6only -opkg -firewall'
+  channel: 13
+  misc_ssid: 'Freifunk-Security'
 
-node-router-2:
-  profile: 'tl-wr841-v8'
-  hostname: 'group-4-node-2'
-  packages: 'olsrd iperf tcpdump-mini olsrd-mod-httpinfo olsrd-mod-jsoninfo'
-  ipv4: '192.168.2.2'
-  ipv4_lan: '192.168.102.'
-  ipv6: 'fc00:2::'
-  ipv6_ll: 'fe80::2'
-
-node-router-3:
-  profile: 'tl-wr841-v8'
-  hostname: 'group-4-node-3'
-  packages: 'olsrd iperf tcpdump-mini olsrd-mod-httpinfo olsrd-mod-jsoninfo'
-  ipv4: '192.168.2.3'
-  ipv4_lan: '192.168.103.'
-  ipv6: 'fc00:3::'
-  ipv6_ll: 'fe80::3'
-
-node-router-4:
-  profile: 'tl-wr841-v8'
-  hostname: 'group-4-node-4'
-  packages: 'olsrd iperf tcpdump-mini olsrd-mod-httpinfo olsrd-mod-jsoninfo'
-  ipv4: '192.168.2.4'
-  ipv4_lan: '192.168.104.'
-  ipv6: 'fc00:4::'
-  ipv6_ll: 'fe80::4'
+access-hausmeister:
+  profile: 'tl-wr841-v9'
+  hostname: 'access-hausmeister'
+  ipv4: '172.20.0.21'
+  ipv6: '2001:67c:20a0:b1a8::21/64'
+  packages: '-ppp -ppp-mod-pppoe -ip6tables -iptables -dnsmasq -odhcp6c -odhcpd-ipv6only -opkg -firewall'
+  channel: 9
+  misc_ssid: 'Freifunk-Hausmeister'
