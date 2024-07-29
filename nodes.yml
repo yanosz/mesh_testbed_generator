@@ -1,5 +1,5 @@
 apu-1:
-  profile: ''
+  profile: 'generic'
   hostname: 'apu-1'
   packages: 'openvswitch wpad kmod-mt7915-firmware kmod-mt7915e'
   ipv4: '192.168.2.1'
@@ -8,7 +8,7 @@ apu-1:
   ipv6_ll: 'fe80::1'
 
 apu-2:
-  profile: ''
+  profile: 'generic'
   hostname: 'apu-2'
   packages: 'openvswitch wpad kmod-mt7915-firmware kmod-mt7915e'
   ipv4: '192.168.2.2'
@@ -17,7 +17,7 @@ apu-2:
   ipv6_ll: 'fe80::2'
 
 apu-3:
-  profile: ''
+  profile: 'generic'
   hostname: 'apu-3'
   packages: 'openvswitch wpad kmod-mt7915-firmware kmod-mt7915e'
   ipv4: '192.168.2.3'
