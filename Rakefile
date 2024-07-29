@@ -55,12 +55,12 @@ def generate_firmware(node_name,profile,packages)
   puts "Exec: make -C '#{SDK_BASE}' image PROFILE=#{profile} PACKAGES='#{packages}'  FILES=./files_generated"
   system("make -C '#{SDK_BASE}' image PROFILE=#{profile} PACKAGES='#{packages}'  FILES=./files_generated")
 
-  FileUtils.mv(
-    "#{SDK_BASE}/bin/targets/#{PLATFORM}/#{PLATFORM_TYPE}/openwrt-#{OPENWRT_VERSION}-#{PLATFORM}-#{PLATFORM_TYPE}-#{profile}-squashfs-sysupgrade.bin",
-    "bin/#{node_name}-sysupgrade.bin")
-  FileUtils.mv(
-    "#{SDK_BASE}/bin/targets/#{PLATFORM}/#{PLATFORM_TYPE}/openwrt-#{OPENWRT_VERSION}-#{PLATFORM}-#{PLATFORM_TYPE}-#{profile}-squashfs-factory.bin",
-    "bin/#{node_name}-factory.bin")
+ Dir.glob("#{SDK_BASE}/bin/targets/#{PLATFORM}/#{PLATFORM_TYPE}/openwrt-*").each do |bin_file|
+    new_name = bin_file.gsub "openwrt-#{OPENWRT_VERSION}-#{PLATFORM}-#{PLATFORM_TYPE}-#{profile}","#{node_name}"
+    puts "Moving #{bin_file} to bin/#{new_name} "
+    FileUtils.mv(bin_file, "bin/#{new_name}"
+  end
+
 end
 
 task :install_sdk do 
