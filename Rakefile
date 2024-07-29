@@ -2,12 +2,11 @@ require "erb"
 require "rake"
 require 'yaml'
 
-LEDE_VERSION="17.01.1"
-PLATFORM="ar71xx"
-PLATFORM_TYPE="generic"
-
-DOWNLOAD_BASE="https://downloads.lede-project.org/releases/#{LEDE_VERSION}/targets/#{PLATFORM}/#{PLATFORM_TYPE}/"
-SDK_BASE="lede-imagebuilder-#{LEDE_VERSION}-#{PLATFORM}-#{PLATFORM_TYPE}.Linux-x86_64"
+OPENWRT_VERSION="23.05.4"
+PLATFORM="x86"
+PLATFORM_TYPE="64"
+DOWNLOAD_BASE="https://downloads.openwrt.org/releases/#{OPENWRT_VERSION}/targets/#{PLATFORM}/#{PLATFORM_TYPE}/"
+SDK_BASE="openwrt-imagebuilder-#{OPENWRT_VERSION}-#{PLATFORM}-#{PLATFORM_TYPE}.Linux-x86_64"
 
 task :default => :generate_all
 task :generate_all => :install_sdk do
@@ -52,13 +51,15 @@ def process_erb(node,erb,base,secrets)
 end
 
 def generate_firmware(node_name,profile,packages)
-  system("rm -R #{SDK_BASE}/bin/*")
-  system("make -C #{SDK_BASE}  image PROFILE=#{profile} PACKAGES='#{packages}'  FILES=./files_generated")
+  FileUtils.rm_r "#{SDK_BASE}/bin/" if File.exists?  "#{SDK_BASE}/bin/"
+  puts "Exec: make -C '#{SDK_BASE}' image PROFILE=#{profile} PACKAGES='#{packages}'  FILES=./files_generated"
+  system("make -C '#{SDK_BASE}' image PROFILE=#{profile} PACKAGES='#{packages}'  FILES=./files_generated")
+
   FileUtils.mv(
-    "#{SDK_BASE}/bin/targets/#{PLATFORM}/#{PLATFORM_TYPE}/lede-#{LEDE_VERSION}-#{PLATFORM}-#{PLATFORM_TYPE}-#{profile}-squashfs-sysupgrade.bin", 
+    "#{SDK_BASE}/bin/targets/#{PLATFORM}/#{PLATFORM_TYPE}/openwrt-#{OPENWRT_VERSION}-#{PLATFORM}-#{PLATFORM_TYPE}-#{profile}-squashfs-sysupgrade.bin",
     "bin/#{node_name}-sysupgrade.bin")
   FileUtils.mv(
-    "#{SDK_BASE}/bin/targets/#{PLATFORM}/#{PLATFORM_TYPE}/lede-#{LEDE_VERSION}-#{PLATFORM}-#{PLATFORM_TYPE}-#{profile}-squashfs-factory.bin", 
+    "#{SDK_BASE}/bin/targets/#{PLATFORM}/#{PLATFORM_TYPE}/openwrt-#{OPENWRT_VERSION}-#{PLATFORM}-#{PLATFORM_TYPE}-#{profile}-squashfs-factory.bin",
     "bin/#{node_name}-factory.bin")
 end
 

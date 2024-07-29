@@ -1,35 +1,26 @@
-node-router-1:
-  profile: 'tl-wr841-v8'
-  hostname: 'group-4-node-1'
-  packages: 'olsrd iperf tcpdump-mini olsrd-mod-httpinfo olsrd-mod-jsoninfo'
+apu-1:
+  profile: ''
+  hostname: 'apu-1'
+  packages: 'openvswitch wpad kmod-mt7915-firmware kmod-mt7915e'
   ipv4: '192.168.2.1'
   ipv4_lan: '192.168.101.'
   ipv6: 'fc00:1::'
   ipv6_ll: 'fe80::1'
 
-node-router-2:
-  profile: 'tl-wr841-v8'
-  hostname: 'group-4-node-2'
-  packages: 'olsrd iperf tcpdump-mini olsrd-mod-httpinfo olsrd-mod-jsoninfo'
+apu-2:
+  profile: ''
+  hostname: 'apu-2'
+  packages: 'openvswitch wpad kmod-mt7915-firmware kmod-mt7915e'
   ipv4: '192.168.2.2'
   ipv4_lan: '192.168.102.'
   ipv6: 'fc00:2::'
   ipv6_ll: 'fe80::2'
 
-node-router-3:
-  profile: 'tl-wr841-v8'
-  hostname: 'group-4-node-3'
-  packages: 'olsrd iperf tcpdump-mini olsrd-mod-httpinfo olsrd-mod-jsoninfo'
+apu-3:
+  profile: ''
+  hostname: 'apu-3'
+  packages: 'openvswitch wpad kmod-mt7915-firmware kmod-mt7915e'
   ipv4: '192.168.2.3'
   ipv4_lan: '192.168.103.'
   ipv6: 'fc00:3::'
   ipv6_ll: 'fe80::3'
-
-node-router-4:
-  profile: 'tl-wr841-v8'
-  hostname: 'group-4-node-4'
-  packages: 'olsrd iperf tcpdump-mini olsrd-mod-httpinfo olsrd-mod-jsoninfo'
-  ipv4: '192.168.2.4'
-  ipv4_lan: '192.168.104.'
-  ipv6: 'fc00:4::'
-  ipv6_ll: 'fe80::4'
