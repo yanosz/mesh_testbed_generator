@@ -58,7 +58,7 @@ def generate_firmware(node_name,profile,packages)
  Dir.glob("#{SDK_BASE}/bin/targets/#{PLATFORM}/#{PLATFORM_TYPE}/openwrt-*").each do |bin_file|
     new_name = bin_file.gsub "openwrt-#{OPENWRT_VERSION}-#{PLATFORM}-#{PLATFORM_TYPE}-#{profile}","#{node_name}"
     puts "Moving #{bin_file} to bin/#{new_name} "
-    FileUtils.mv(bin_file, "bin/#{new_name}"
+    FileUtils.mv(bin_file, "bin/#{new_name}")
   end
 
 end
