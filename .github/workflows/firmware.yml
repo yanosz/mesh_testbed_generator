@@ -2,7 +2,7 @@ name: Generate firmware
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
-  Build images:
+  Build-images:
     runs-on: debian-12
     steps:
       - uses: actions/checkout@v4
