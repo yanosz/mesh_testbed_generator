@@ -9,7 +9,7 @@ jobs:
       - uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
         with:
           ruby-version: '3.1' # Not needed with a .ruby-version file
-      - run: sudo apt-get install -y rake build-essentials make gawk
+      - run: sudo apt-get install -y rake build-essential make gawk
       - run: rake
       - uses: actions/upload-artifact@v4
         with:
