@@ -2,7 +2,7 @@ require "erb"
 require "rake"
 require 'yaml'
 
-OPENWRT_VERSION="23.05.4"
+OPENWRT_VERSION="23.05.5"
 PLATFORM="x86"
 PLATFORM_TYPE="64"
 DOWNLOAD_BASE="https://downloads.openwrt.org/releases/#{OPENWRT_VERSION}/targets/#{PLATFORM}/#{PLATFORM_TYPE}/"
